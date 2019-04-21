@@ -1,4 +1,7 @@
 # Turing Wallet 
+A Crypto Wallet for the Ethereum blockchain.
+<br>
+Huge thanks to MetaMask Team!! 
 
 ## Development 
 
