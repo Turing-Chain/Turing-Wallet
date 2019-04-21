@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import Button from '@material-ui/core/Button'
-import TextField from '../../components/ui/text-field'
-import getCaretCoordinates from 'textarea-caret'
-import { EventEmitter } from 'events'
-import Mascot from '../../components/ui/mascot'
-import { DEFAULT_ROUTE } from '../../helpers/constants/routes'
+import Button from '@material-ui/core/Button';
+import { EventEmitter } from 'events';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
+import getCaretCoordinates from 'textarea-caret';
+import TextField from '../../components/ui/text-field';
+import { DEFAULT_ROUTE } from '../../helpers/constants/routes';
 
 export default class UnlockPage extends Component {
   static contextTypes = {
@@ -23,7 +22,7 @@ export default class UnlockPage extends Component {
     showOptInModal: PropTypes.func,
   }
 
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.state = {
@@ -35,7 +34,7 @@ export default class UnlockPage extends Component {
     this.animationEventEmitter = new EventEmitter()
   }
 
-  componentWillMount () {
+  componentWillMount() {
     const { isUnlocked, history } = this.props
 
     if (isUnlocked) {
@@ -93,7 +92,7 @@ export default class UnlockPage extends Component {
     }
   }
 
-  handleInputChange ({ target }) {
+  handleInputChange({ target }) {
     this.setState({ password: target.value, error: null })
 
     // tell mascot to look at page action
@@ -106,7 +105,7 @@ export default class UnlockPage extends Component {
     })
   }
 
-  renderSubmitButton () {
+  renderSubmitButton() {
     const style = {
       backgroundColor: '#f7861c',
       color: 'white',
@@ -128,12 +127,12 @@ export default class UnlockPage extends Component {
         onClick={this.handleSubmit}
         disableRipple
       >
-        { this.context.t('login') }
+        {this.context.t('login')}
       </Button>
     )
   }
 
-  render () {
+  render() {
     const { password, error } = this.state
     const { t } = this.context
     const { onImport, onRestore } = this.props
@@ -142,16 +141,17 @@ export default class UnlockPage extends Component {
       <div className="unlock-page__container">
         <div className="unlock-page">
           <div className="unlock-page__mascot-container">
-            <Mascot
+            {/* <Mascot
               animationEventEmitter={this.animationEventEmitter}
               width="120"
               height="120"
-            />
+            /> */}
+            <img src="../../../../images/welcome-logo.png" alt="logo"></img>
           </div>
           <h1 className="unlock-page__title">
-            { t('welcomeBack') }
+            {t('welcomeBack')}
           </h1>
-          <div>{ t('unlockMessage') }</div>
+          <div>{t('unlockMessage')}</div>
           <form
             className="unlock-page__form"
             onSubmit={this.handleSubmit}
@@ -169,19 +169,19 @@ export default class UnlockPage extends Component {
               fullWidth
             />
           </form>
-          { this.renderSubmitButton() }
+          {this.renderSubmitButton()}
           <div className="unlock-page__links">
             <div
               className="unlock-page__link"
               onClick={() => onRestore()}
             >
-              { t('restoreFromSeed') }
+              {t('restoreFromSeed')}
             </div>
             <div
               className="unlock-page__link unlock-page__link--import"
               onClick={() => onImport()}
             >
-              { t('importUsingSeed') }
+              {t('importUsingSeed')}
             </div>
           </div>
         </div>
