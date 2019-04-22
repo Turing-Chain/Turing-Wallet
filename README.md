@@ -1,4 +1,4 @@
-# Turing Wallet 
+# Turing Wallet Chrome
 A Crypto Wallet for the Ethereum blockchain.
 <br>
 Huge thanks to [MetaMask](https://github.com/MetaMask) Team!! 
